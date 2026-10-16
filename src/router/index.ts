@@ -6,5 +6,6 @@ export const router = createRouter({
   routes: [
     { path: '/', name: 'home', component: HomeView },
     { path: '/mosaik', name: 'mosaik', component: () => import('../views/MosaicView.vue') },
+    { path: '/admin', name: 'admin', component: () => import('../views/AdminView.vue') },
   ],
 })
