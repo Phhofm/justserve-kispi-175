@@ -146,6 +146,12 @@ Je Karte: Fortschrittsbalken, Zähler (`X / 175`, `Y%`), Button «Beitrag einrei
 - **Keep-alive**: externer Cron verhindert Pausieren.
 - **Graceful degradation**: Bei Backend-Ausfall zeigt die Seite den zuletzt bekannten Stand statt einer Fehlermeldung.
 
+### 8.1 Härtung nach Code-Review (16.10.2026, Migration 0002)
+- **Upload-Grenzen am Bucket** (`file_size_limit` 10 MB, `allowed_mime_types` jpeg/png/webp) – serverseitig, unabhängig vom Client.
+- **Admin-Allowlist** (`public.admins`): Die Moderation ist auf eingetragene E-Mails beschränkt, nicht auf jeden eingeloggten Nutzer. Öffentliche Registrierung in Supabase deaktivieren.
+- **Freigabe robust**: Scheitert das Verschieben des Fotos nach `approved/`, bleibt der Pfad unverändert; das Foto ist im öffentlichen Bucket weiterhin erreichbar.
+- **Bewusster Kompromiss**: Der Bucket bleibt öffentlich. `pending`-Fotos sind damit über ihre (nicht auflistbare) UUID-URL erreichbar. Ohne Listung praktisch nicht auffindbar; für striktere Isolation wäre ein privater Bucket mit Signed URLs nötig.
+
 ## 9. Design & UX
 
 Anspruch: **schön, modern, clean, intuitiv** – mit ansprechenden Visualisierungen, Grafiken und sanften Animationen. Der Ersteindruck beim Pfahlpräsidenten zählt.

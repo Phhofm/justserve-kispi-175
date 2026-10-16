@@ -62,5 +62,19 @@ const istPolicyFehler =
   !!approvedErr && (approvedErr.code === '42501' || /row-level security|violates/i.test(approvedErr.message))
 pruefe('Einreichen als «approved» abgelehnt (RLS)', istPolicyFehler, approvedErr?.message ?? 'unerwartet erlaubt')
 
+// 4. Bucket lehnt Nicht-Bilder ab (allowed_mime_types)
+const pdf = new Blob([new Uint8Array(16)], { type: 'application/pdf' })
+const { error: pdfErr } = await supabase.storage
+  .from('fotos')
+  .upload(`pending/smoke-${Date.now()}.pdf`, pdf, { contentType: 'application/pdf' })
+pruefe('Bucket lehnt Nicht-Bilder ab', !!pdfErr, pdfErr ? '' : 'unerwartet erlaubt')
+
+// 5. Bucket lehnt zu grosse Dateien ab (file_size_limit)
+const gross = new Blob([new Uint8Array(11 * 1024 * 1024)], { type: 'image/jpeg' })
+const { error: grossErr } = await supabase.storage
+  .from('fotos')
+  .upload(`pending/smoke-${Date.now()}-gross.jpg`, gross, { contentType: 'image/jpeg' })
+pruefe('Bucket lehnt zu grosse Dateien ab', !!grossErr, grossErr ? '' : 'unerwartet erlaubt')
+
 console.log(fehler === 0 ? '\nOK' : `\n${fehler} Prüfung(en) fehlgeschlagen`)
 process.exit(fehler === 0 ? 0 : 1)

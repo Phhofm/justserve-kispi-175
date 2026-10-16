@@ -26,8 +26,16 @@ Falls es doch pausiert wurde: Supabase-Dashboard → Projekt → **Restore/Resum
 
 ## Admin-Account anlegen
 
-Supabase-Dashboard → **Authentication → Users → Add user** → E-Mail + Passwort. Mit diesen Daten
-meldet man sich unter `/admin` an. Weitere Admins: einfach weitere Users anlegen.
+1. Supabase-Dashboard → **Authentication → Users → Add user** → E-Mail + Passwort.
+2. Die E-Mail in die **Admin-Allowlist** aufnehmen (SQL-Editor):
+   ```sql
+   insert into public.admins (email) values ('deine@email.ch') on conflict do nothing;
+   ```
+3. Unter `/admin` anmelden. Weitere Admins: weitere Users anlegen und deren E-Mail ergänzen.
+
+**Wichtig:** In Supabase unter **Authentication → Sign In / Providers** das **öffentliche
+Registrieren deaktivieren** («Allow new users to sign up» aus). Die Moderation ist dank der
+`admins`-Allowlist ohnehin geschützt, aber die Registrierung soll geschlossen sein.
 
 ## Repository-Variablen für das Deployment
 
@@ -46,5 +54,6 @@ Supabase-Dashboard unter **Table Editor → beitraege** löschen.
 
 ## Migrationen
 
-Migrationen liegen als SQL in `supabase/migrations/`. Bei Änderungen im SQL-Editor ausführen und
-die Datei im Repo mitführen.
+Migrationen liegen als SQL in `supabase/migrations/` und werden der Reihe nach im SQL-Editor
+ausgeführt: `0001_init.sql` (Tabellen, RLS, Bucket), `0002_hardening.sql` (Bucket-Grenzen,
+Admin-Allowlist). Bei Änderungen im SQL-Editor ausführen und die Datei im Repo mitführen.

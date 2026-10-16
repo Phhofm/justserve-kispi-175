@@ -58,6 +58,17 @@ describe('useModeration', () => {
     expect(offene.value).toHaveLength(0)
   })
 
+  it('gibt auch frei, wenn das Verschieben scheitert (Foto bleibt erreichbar)', async () => {
+    const { offene, laden, freigeben } = useModeration()
+    await laden()
+    mocks.move.mockResolvedValueOnce({ error: { message: 'nope' } })
+    await freigeben('1')
+    expect(mocks.update).toHaveBeenCalledWith(
+      expect.objectContaining({ status: 'approved', foto_pfad: 'pending/1.jpg' }),
+    )
+    expect(offene.value).toHaveLength(0)
+  })
+
   it('lehnt ab: setzt rejected und löscht das Foto', async () => {
     const { offene, laden, ablehnen } = useModeration()
     await laden()

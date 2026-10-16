@@ -32,16 +32,19 @@ export function useModeration(): {
     if (!beitrag) return
 
     const ziel = beitrag.foto_pfad.replace(/^pending\//, 'approved/')
+    let endPfad = beitrag.foto_pfad
     if (ziel !== beitrag.foto_pfad) {
       const { error: moveError } = await getSupabase()
         .storage.from('fotos')
         .move(beitrag.foto_pfad, ziel)
-      if (moveError) throw new Error('Das Foto konnte nicht verschoben werden.')
+      // Schlägt das Verschieben fehl, bleibt der Pfad unverändert – der
+      // öffentliche Bucket liefert das Bild trotzdem aus.
+      if (!moveError) endPfad = ziel
     }
 
     const { error } = await getSupabase()
       .from('beitraege')
-      .update({ status: 'approved', freigegeben_am: new Date().toISOString(), foto_pfad: ziel })
+      .update({ status: 'approved', freigegeben_am: new Date().toISOString(), foto_pfad: endPfad })
       .eq('id', id)
     if (error) throw new Error('Freigabe fehlgeschlagen.')
 
