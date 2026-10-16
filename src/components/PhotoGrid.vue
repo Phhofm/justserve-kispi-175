@@ -14,7 +14,7 @@ defineProps<{ fotos: Beitrag[] }>()
     >
       <img
         :src="fotoUrl(foto.foto_pfad)"
-        :alt="foto.einreicher ? `Beitrag von ${foto.einreicher}` : 'Eingereichter Beitrag'"
+        alt="Eingereichter Beitrag"
         class="h-full w-full object-cover"
         loading="lazy"
       />
