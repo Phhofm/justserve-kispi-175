@@ -36,23 +36,22 @@ if (pingErr) {
 }
 pruefe('API erreichbar und Key gültig', true)
 
-// 1. Einreichen als pending erlaubt
+// 1. Einreichen als pending erlaubt (ohne RETURNING – anon darf pending nicht lesen)
 const pfad = `pending/smoke-${Date.now()}.jpg`
-const { data: eingefuegt, error: insertErr } = await supabase
+const { error: insertErr } = await supabase
   .from('beitraege')
   .insert({ kategorie: 'autos', menge: 1, einreicher: '__smoke__', foto_pfad: pfad, status: 'pending' })
-  .select('id')
-  .single()
 
-pruefe('Einreichen (pending) erlaubt', !insertErr && !!eingefuegt?.id, insertErr?.message)
+pruefe('Einreichen (pending) erlaubt', !insertErr, insertErr?.message)
 
 // 2. pending ist öffentlich nicht lesbar (ohne Fehler, einfach unsichtbar)
-const { data: sichtbar, error: selErr } = await supabase
-  .from('beitraege')
-  .select('id')
-  .eq('id', eingefuegt?.id ?? '00000000-0000-0000-0000-000000000000')
+const { data: sichtbar, error: selErr } = await supabase.from('beitraege').select('id, einreicher')
 
-pruefe('pending nicht öffentlich lesbar', !selErr && (sichtbar?.length ?? 0) === 0, selErr?.message)
+pruefe(
+  'pending nicht öffentlich lesbar',
+  !selErr && !(sichtbar ?? []).some((r) => r.einreicher === '__smoke__'),
+  selErr?.message,
+)
 
 // 3. Einreichen als approved wird von RLS abgelehnt (nicht von einem Auth-Fehler)
 const { error: approvedErr } = await supabase
