@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { useContributions } from '../composables/useContributions'
+import { ref } from 'vue'
+import type { Beitrag } from '../lib/types'
 import { fotoUrl } from '../lib/supabase'
 import { mosaikLayout } from '../lib/mosaic'
 
-const { beitraege, laden } = useContributions()
+const props = defineProps<{ fotos: Beitrag[] }>()
 const laeuft = ref(false)
-
-onMounted(laden)
 
 function ladeBild(src: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
@@ -20,11 +18,11 @@ function ladeBild(src: string): Promise<HTMLImageElement> {
 }
 
 async function herunterladen() {
-  if (!beitraege.value.length) return
+  if (!props.fotos.length) return
   laeuft.value = true
   try {
-    const fotos = beitraege.value.map((b) => fotoUrl(b.foto_pfad))
-    const { spalten, zeilen } = mosaikLayout(fotos.length)
+    const pfade = props.fotos.map((b) => fotoUrl(b.foto_pfad))
+    const { spalten, zeilen } = mosaikLayout(pfade.length)
     const kachel = 220
     const canvas = document.createElement('canvas')
     canvas.width = spalten * kachel
@@ -32,7 +30,7 @@ async function herunterladen() {
     const ctx = canvas.getContext('2d')
     if (!ctx) throw new Error('Canvas nicht verfügbar.')
 
-    const bilder = await Promise.all(fotos.map(ladeBild))
+    const bilder = await Promise.all(pfade.map(ladeBild))
     bilder.forEach((img, i) => {
       const x = (i % spalten) * kachel
       const y = Math.floor(i / spalten) * kachel
@@ -55,16 +53,24 @@ async function herunterladen() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-50">
-    <header class="bg-gradient-to-br from-blue-700 to-indigo-700 px-4 py-12 text-center text-white">
-      <h1 class="text-3xl font-bold sm:text-4xl">Das Trösterli-Mosaik</h1>
-      <p class="mx-auto mt-2 max-w-xl text-blue-50">
-        Jedes Foto ist ein Beitrag. Zusammen entsteht ein grosses Bild.
-      </p>
-    </header>
+  <section id="mosaik" class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100 sm:p-8">
+    <h2 class="text-xl font-semibold text-slate-900">Unser Mosaik</h2>
+    <p class="mt-1 text-slate-500">
+      Jedes Foto ist ein Beitrag. Zusammen entsteht ein grosses Bild – Stück für Stück.
+    </p>
 
-    <main class="mx-auto max-w-5xl px-4 py-10">
-      <div v-if="beitraege.length" class="mb-6 text-center">
+    <template v-if="fotos.length">
+      <div class="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-5">
+        <img
+          v-for="b in fotos"
+          :key="b.id"
+          :src="fotoUrl(b.foto_pfad)"
+          alt="Eingereichter Beitrag"
+          class="aspect-square w-full rounded-lg object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div class="mt-4 text-center">
         <button
           type="button"
           :disabled="laeuft"
@@ -74,18 +80,9 @@ async function herunterladen() {
           {{ laeuft ? 'Wird erstellt…' : 'Mosaik herunterladen' }}
         </button>
       </div>
-
-      <div v-if="beitraege.length" class="grid grid-cols-3 gap-2 sm:grid-cols-5">
-        <img
-          v-for="b in beitraege"
-          :key="b.id"
-          :src="fotoUrl(b.foto_pfad)"
-          alt="Eingereichter Beitrag"
-          class="aspect-square w-full rounded-lg object-cover"
-          loading="lazy"
-        />
-      </div>
-      <p v-else class="text-center text-slate-400">Noch keine freigegebenen Fotos.</p>
-    </main>
-  </div>
+    </template>
+    <p v-else class="mt-4 text-slate-400">
+      Noch keine freigegebenen Fotos – sei die oder der Erste!
+    </p>
+  </section>
 </template>

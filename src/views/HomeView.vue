@@ -10,6 +10,7 @@ import HowItWorks from '../components/HowItWorks.vue'
 import HintsSection from '../components/HintsSection.vue'
 import CategoryCard from '../components/CategoryCard.vue'
 import DonationSection from '../components/DonationSection.vue'
+import MosaicSection from '../components/MosaicSection.vue'
 import UploadModal from '../components/UploadModal.vue'
 import SiteFooter from '../components/SiteFooter.vue'
 
@@ -67,6 +68,10 @@ onMounted(laden)
 
       <div class="mt-10">
         <DonationSection />
+      </div>
+
+      <div class="mt-10">
+        <MosaicSection :fotos="beitraege" />
       </div>
     </main>
 
