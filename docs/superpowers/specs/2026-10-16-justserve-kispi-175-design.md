@@ -193,3 +193,26 @@ Vom Auftraggeber noch bereitzustellen (vor dem Build):
 1. **Supabase-Projekt** anlegen (Free Tier, Region Zürich) – und URL + `anon`-Key mitteilen.
 
 **Repo:** `https://github.com/Phhofm/justserve-kispi-175` (bereits angelegt, Account `Phhofm`).
+
+## 14. Inhalte, Texte & Klärungen (Feedback 16.10.2026)
+
+### Entscheidungen
+- **Admin-Dashboard in der Web-App** (Route `/admin`, Task 11): Liste der eingereichten Beiträge mit **Menge + Foto**, Freigeben/Ablehnen. Kein externes Tool.
+- **Name/Gemeinde** wird erfasst als freiwilliges Feld «Dein Name & Gemeinde (freiwillig)» (Task 9). Kein Pflichtfeld – senkt die Hürde.
+- **Kategorien-Bilder**: je Kategorie ein kleines, einheitliches Icon/Emoji statt echtem Foto (Task 7/13). Echte Beispielbilder später möglich, aber nicht nötig.
+- **Mosaik** (Task 10): **pro Kategorie** ein Foto-Grid (schon vorhanden) **und** eine eigene Seite «/mosaik» mit dem grossen **Gesamtmosaik + Download**.
+- **Spende** (Task 12): eigener Abschnitt mit **Platzhalter-Karte/Bild**, **noch ohne Link**. Wird ersetzt, sobald die eigene Spendenaktion steht.
+
+### Abschnitt «Über die Aktion» (Text, vom Auftraggeber geliefert)
+> Auf den verschiedenen Abteilungen gibt es sog. Belohnungsboxen, aus welchen unsere Patientinnen und Patienten sich nach einer unangenehmen Behandlung ein Geschenkli aussuchen dürfen. Sie sind auch eine gute Ablenkung. Jährlich setzt das Kinderspital Zürich rund 150'000 Trösterli ein! Die Geschenke sollen nicht mehr als 1–3 Franken kosten.
+
+Dienstprojekt-Rahmung:
+> Wir machen ein **Dienstprojekt der anderen Art**: Gemeinsam sammeln wir Trösterli für das Kinderspital Zürich und bringen sie als **Trösterlipaket** vorbei – als Beitrag des Pfahls Zürich zum 175-Jahr-Jubiläum der Kirche in der Schweiz.
+
+### Abschnitt «Was das Kinderspital braucht» (Hinweise, offizieller Kispi-Text)
+> Das Kinderspital ist ein besonderer Ort: neben der medizinischen Versorgung ist uns das Wohlbefinden unserer Patienten sowie deren Angehörigen ein grosses Anliegen. Damit sich Kinder und ihre Familien trotz Krankheit oder Unfall wohl fühlen können, möchten wir ihnen mit kleinen Besonderheiten den Alltag bunter gestalten. In den Wartebereichen des Notfalls und der Poliklinik sowie auf den Bettenstationen haben wir deshalb u.a. Spielsachen und «Trösterli-Gschänkli» für unsere jungen Patientinnen und Patienten. Diese sind sehr wichtig zur Ablenkung in oftmals schwierigen Situationen.
+>
+> **Wichtig:**
+> - Neue und möglichst originalverpackte Spielsachen sind willkommen und bereiten unseren Patienten grosse Freude. Bitte verpacken Sie **KEINE** Spielsachen und Sachspenden in Geschenkpapier.
+> - **Achtung:** Stofftiere können wir nicht annehmen, da sie sich nicht desinfizieren lassen und deshalb für immungeschwächte Kinder gefährlich sind.
+

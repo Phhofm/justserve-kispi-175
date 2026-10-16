@@ -608,6 +608,37 @@ git commit -m "docs: betriebsanleitung und readme"
 
 ---
 
+## Task 16: Kontext- und Hinweis-Sektionen (Feedback 16.10.2026)
+
+**Files:**
+- Create: `src/components/AboutSection.vue`, `src/components/HintsSection.vue`, `src/components/CategoryIcon.vue`
+- Modify: `src/views/HomeView.vue`, `src/components/CategoryCard.vue`
+- Test: `src/views/HomeView.test.ts` (erweitern)
+
+**Interfaces:**
+- Consumes: — (rein informativ)
+- Produces: zwei Sektionen zwischen Hero und Kategorien; Icons je Kategorie.
+
+- [ ] **Step 1: Failing test schreiben**
+
+`HomeView.test.ts` ergänzen:
+- Text enthält «Über die Aktion» und «150'000 Trösterli» und «1–3 Franken».
+- Text enthält «originalverpackte Spielsachen» und «Stofftiere».
+
+- [ ] **Step 2: Test laufen lassen** → FAIL.
+
+- [ ] **Step 3: Implementieren** `AboutSection.vue` (Text aus Design §14) und `HintsSection.vue` (Hinweise aus Design §14); in `HomeView` einbinden. `CategoryIcon.vue` liefert je Slug ein Emoji/Icon, in `CategoryCard` neben dem Titel.
+
+- [ ] **Step 4: Test laufen lassen** → PASS.
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add src && git commit -m "feat(ui): kontext-, hinweis- und kategorie-icon-sektionen"
+```
+
+---
+
 ## Self-Review-Ergebnis
 
 - **Spec-Abdeckung:** Hero/§7.1→T8; Kategorien/§7.2→T7,T8; Fortschrittslogik/§7.3→T4,T7; Upload/§7.4→T9; Moderation/§7.5→T11; Mosaik/§7.6→T10; Spenden/§7.7→T12; Sicherheit/§8→T2,T6,T9; Design/§9→T13; Repo&Betrieb/§10→T1,T14,T15. Alle abgedeckt.
