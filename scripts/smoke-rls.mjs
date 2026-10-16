@@ -1,0 +1,55 @@
+// RLS-Smoke-Test: prüft mit dem öffentlichen anon-Key, dass
+//  1. Einreichen (pending) erlaubt ist,
+//  2. pending-Beiträge NICHT öffentlich lesbar sind,
+//  3. ein Einreichen als «approved» abgelehnt wird.
+//
+// Aufruf:  node --env-file=.env scripts/smoke-rls.mjs
+//
+// Hinweis: Prüfung 1 legt eine echte pending-Zeile an. Da anon nicht
+// löschen darf, im Supabase-Dashboard wieder entfernen.
+
+import { createClient } from '@supabase/supabase-js'
+
+const url = process.env.VITE_SUPABASE_URL
+const key = process.env.VITE_SUPABASE_ANON_KEY
+
+if (!url || !key) {
+  console.error('Fehlend: VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY. Mit --env-file=.env starten.')
+  process.exit(1)
+}
+
+const supabase = createClient(url, key)
+let fehler = 0
+
+function pruefe(name, ok, detail = '') {
+  console.log(`${ok ? 'OK  ' : 'FAIL'}  ${name}${detail ? ' — ' + detail : ''}`)
+  if (!ok) fehler++
+}
+
+// 1. Einreichen als pending erlaubt
+const pfad = `pending/smoke-${Date.now()}.jpg`
+const { data: eingefuegt, error: insertErr } = await supabase
+  .from('beitraege')
+  .insert({ kategorie: 'autos', menge: 1, einreicher: '__smoke__', foto_pfad: pfad, status: 'pending' })
+  .select('id')
+  .single()
+
+pruefe('Einreichen (pending) erlaubt', !insertErr && !!eingefuegt?.id, insertErr?.message)
+
+// 2. pending ist öffentlich nicht lesbar
+const { data: sichtbar } = await supabase
+  .from('beitraege')
+  .select('id')
+  .eq('id', eingefuegt?.id ?? '00000000-0000-0000-0000-000000000000')
+
+pruefe('pending nicht öffentlich lesbar', (sichtbar?.length ?? 0) === 0)
+
+// 3. Einreichen als approved abgelehnt
+const { error: approvedErr } = await supabase
+  .from('beitraege')
+  .insert({ kategorie: 'autos', menge: 1, foto_pfad: pfad, status: 'approved' })
+
+pruefe('Einreichen als «approved» abgelehnt', !!approvedErr, approvedErr ? '' : 'unerwartet erlaubt')
+
+console.log(fehler === 0 ? '\nOK' : `\n${fehler} Prüfung(en) fehlgeschlagen`)
+process.exit(fehler === 0 ? 0 : 1)
