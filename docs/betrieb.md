@@ -14,9 +14,13 @@ Dagegen hilft ein **täglicher Ping**. Empfehlung: ein kostenloser externer Cron
 
 1. Gratis-Konto anlegen.
 2. Neuer Job, täglich (z. B. 06:00).
-3. URL: `https://<projekt>.supabase.co/rest/v1/beitraege?select=id&limit=1`
-4. Header ergänzen: `apikey: <anon-publishable-key>` und `Authorization: Bearer <anon-publishable-key>`
-5. Speichern. Ein HTTP-Status 200 bedeutet Erfolg.
+3. URL (einfachste Variante – Key direkt in der URL):
+   `https://<projekt>.supabase.co/rest/v1/beitraege?select=id&limit=1&apikey=<publishable-key>`
+   (Alternative ohne Key in der URL: Header `apikey: <key>` und `Authorization: Bearer <key>` setzen.)
+4. Speichern.
+
+Ein **HTTP-Status 200** bedeutet Erfolg. Der Key in der URL ist der öffentliche publishable-Key –
+er steht ohnehin im ausgelieferten JavaScript.
 
 Der Ping erzeugt eine Datenbank-Anfrage und hält das Projekt damit aktiv.
 
