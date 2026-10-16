@@ -4,7 +4,9 @@ import App from './App.vue'
 
 describe('App', () => {
   it('rendert die App-Wurzel', () => {
-    const wrapper = mount(App)
+    const wrapper = mount(App, {
+      global: { stubs: { RouterView: { template: '<div />' } } },
+    })
     expect(wrapper.find('[data-testid="app"]').exists()).toBe(true)
   })
 })

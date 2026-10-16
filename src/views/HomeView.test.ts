@@ -1,0 +1,59 @@
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { mount, flushPromises } from '@vue/test-utils'
+import type { Beitrag } from '../lib/types'
+
+const mocks = vi.hoisted(() => {
+  const order = vi.fn()
+  const eq = vi.fn(() => ({ order }))
+  const select = vi.fn(() => ({ eq }))
+  const from = vi.fn(() => ({ select }))
+  return { order, eq, select, from }
+})
+
+vi.mock('../lib/supabase', () => ({
+  getSupabase: () => ({ from: mocks.from }),
+  fotoUrl: (pfad: string) => `/fotos/${pfad}`,
+}))
+
+import HomeView from './HomeView.vue'
+
+const beitrag: Beitrag = {
+  id: '1',
+  created_at: '2027-01-01T00:00:00Z',
+  kategorie: 'autos',
+  menge: 5,
+  einreicher: null,
+  foto_pfad: 'approved/1.jpg',
+  status: 'approved',
+  freigegeben_am: null,
+}
+
+describe('HomeView', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mocks.order.mockResolvedValue({ data: [], error: null })
+  })
+
+  it('zeigt Hero-Titel, Gesamtzähler und genau fünf Kategorien', async () => {
+    const w = mount(HomeView)
+    await flushPromises()
+    expect(w.text()).toContain('175 Jahre Kirche in der Schweiz')
+    expect(w.text()).toContain('0 / 875')
+    expect(w.findAll('article')).toHaveLength(5)
+  })
+
+  it('zeigt bei einem Backend-Fehler einen dezenten Hinweis statt eines Absturzes', async () => {
+    mocks.order.mockResolvedValueOnce({ data: null, error: { message: 'boom' } })
+    const w = mount(HomeView)
+    await flushPromises()
+    expect(w.text()).toContain('konnten gerade nicht geladen werden')
+    expect(w.findAll('article')).toHaveLength(5)
+  })
+
+  it('rechnet geladene Beiträge in den Gesamtzähler ein', async () => {
+    mocks.order.mockResolvedValue({ data: [beitrag], error: null })
+    const w = mount(HomeView)
+    await flushPromises()
+    expect(w.text()).toContain('5 / 875')
+  })
+})
