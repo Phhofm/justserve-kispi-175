@@ -70,4 +70,10 @@ describe('UploadModal', () => {
     )
     expect(w.text()).toContain('Danke')
   })
+
+  it('schliesst bei Escape', async () => {
+    const w = mount(UploadModal, { props: { offen: true } })
+    await w.find('[role="dialog"]').trigger('keydown', { key: 'Escape' })
+    expect(w.emitted('geschlossen')).toBeTruthy()
+  })
 })

@@ -30,9 +30,16 @@ onMounted(laden)
 
 <template>
   <div class="min-h-screen bg-slate-50">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-blue-700"
+    >
+      Zum Inhalt springen
+    </a>
+
     <HeroSection :gesamtziel="fortschritt.ziel" @beitragen="oeffneUpload()" />
 
-    <main class="mx-auto max-w-6xl px-4 py-10 sm:py-14">
+    <main id="main" class="mx-auto max-w-6xl px-4 py-10 sm:py-14">
       <OverallProgress :fortschritt="fortschritt" />
 
       <p v-if="fehler" class="mt-4 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">

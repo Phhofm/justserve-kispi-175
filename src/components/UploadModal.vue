@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, nextTick } from 'vue'
 import { KATEGORIEN } from '../lib/categories'
 import type { CategorySlug } from '../lib/types'
 import { istErlaubtesBild } from '../lib/imageCompression'
@@ -15,6 +15,7 @@ const datei = ref<File | null>(null)
 const fout = ref<string | null>(null)
 const laeuft = ref(false)
 const fertig = ref(false)
+const dialogRef = ref<HTMLElement | null>(null)
 
 watch(
   () => props.startKategorie,
@@ -26,10 +27,12 @@ watch(
 
 watch(
   () => props.offen,
-  (v) => {
+  async (v) => {
     if (v) {
       fout.value = null
       fertig.value = false
+      await nextTick()
+      dialogRef.value?.focus()
     }
   },
 )
@@ -70,11 +73,14 @@ async function senden() {
 <template>
   <div
     v-if="offen"
-    class="fixed inset-0 z-40 grid place-items-center overflow-y-auto bg-slate-900/50 p-4"
+    ref="dialogRef"
+    tabindex="-1"
+    class="fixed inset-0 z-40 grid place-items-center overflow-y-auto bg-slate-900/50 p-4 outline-none"
     role="dialog"
     aria-modal="true"
     aria-label="Beitrag einreichen"
     @click.self="emit('geschlossen')"
+    @keydown.esc="emit('geschlossen')"
   >
     <div class="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
       <div v-if="fertig" class="text-center">
