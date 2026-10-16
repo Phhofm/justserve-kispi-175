@@ -56,4 +56,14 @@ describe('HomeView', () => {
     await flushPromises()
     expect(w.text()).toContain('5 / 875')
   })
+
+  it('zeigt Kontext zur Aktion und die Hinweise des Kinderspitals', async () => {
+    const w = mount(HomeView)
+    await flushPromises()
+    expect(w.text()).toContain('Über die Aktion')
+    expect(w.text()).toContain('Trösterli')
+    expect(w.text()).toContain('1–3 Franken')
+    expect(w.text()).toContain('originalverpackte Spielsachen')
+    expect(w.text()).toContain('Stofftiere')
+  })
 })

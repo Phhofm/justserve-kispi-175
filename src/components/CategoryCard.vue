@@ -3,6 +3,7 @@ import type { Beitrag, CategorySlug, Kategorie } from '../lib/types'
 import type { KategorieFortschritt } from '../lib/progress'
 import ProgressBar from './ProgressBar.vue'
 import PhotoGrid from './PhotoGrid.vue'
+import CategoryIcon from './CategoryIcon.vue'
 
 defineProps<{
   kategorie: Kategorie
@@ -15,7 +16,10 @@ defineEmits<{ einreichen: [slug: CategorySlug] }>()
 
 <template>
   <article class="flex flex-col rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
-    <h3 class="text-lg font-semibold text-slate-900">{{ kategorie.label }}</h3>
+    <h3 class="flex items-center gap-2 text-lg font-semibold text-slate-900">
+      <CategoryIcon :slug="kategorie.slug" />
+      {{ kategorie.label }}
+    </h3>
     <p class="mt-1 text-sm text-slate-500">{{ kategorie.beschreibung }}</p>
 
     <div class="mt-4">

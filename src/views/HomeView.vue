@@ -5,6 +5,8 @@ import type { CategorySlug } from '../lib/types'
 import { useContributions } from '../composables/useContributions'
 import HeroSection from '../components/HeroSection.vue'
 import OverallProgress from '../components/OverallProgress.vue'
+import AboutSection from '../components/AboutSection.vue'
+import HintsSection from '../components/HintsSection.vue'
 import CategoryCard from '../components/CategoryCard.vue'
 import UploadModal from '../components/UploadModal.vue'
 import SiteFooter from '../components/SiteFooter.vue'
@@ -35,6 +37,11 @@ onMounted(laden)
       <p v-if="fehler" class="mt-4 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
         {{ fehler }}
       </p>
+
+      <div class="mt-8 space-y-6">
+        <AboutSection />
+        <HintsSection />
+      </div>
 
       <h2 class="mt-10 text-xl font-semibold text-slate-900">Die fünf Kategorien</h2>
       <div class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
