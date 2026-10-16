@@ -13,8 +13,9 @@ defineEmits<{ beitragen: [] }>()
         Trösterli für das Kinderspital Zürich
       </h1>
       <p class="mx-auto mt-5 max-w-2xl text-lg text-blue-50">
-        JustServe Pfahl Zürich × Kinderspital Zürich – gemeinsam sammeln wir {{ gesamtziel }} kleine
-        Trösterli und bringen jungen Patientinnen und Patienten ein Lächeln.
+        Gemeinsam sammeln wir Trösterli für die tapferen Kinder im Kinderspital Zürich:
+        {{ gesamtziel }} kleine Freuden, 175 aus jeder der fünf Kategorien. Als Pfahl Zürich zum
+        175-Jahr-Jubiläum der Kirche in der Schweiz.
       </p>
       <button
         type="button"

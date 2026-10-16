@@ -66,4 +66,11 @@ describe('HomeView', () => {
     expect(w.text()).toContain('originalverpackte Spielsachen')
     expect(w.text()).toContain('Stofftiere')
   })
+
+  it('erklärt in drei Schritten, wie man mitmacht', async () => {
+    const w = mount(HomeView)
+    await flushPromises()
+    expect(w.text()).toContain('So funktioniert')
+    expect(w.text()).toContain('In die Gemeinde')
+  })
 })

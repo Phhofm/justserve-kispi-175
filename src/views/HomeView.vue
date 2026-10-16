@@ -6,6 +6,7 @@ import { useContributions } from '../composables/useContributions'
 import HeroSection from '../components/HeroSection.vue'
 import OverallProgress from '../components/OverallProgress.vue'
 import AboutSection from '../components/AboutSection.vue'
+import HowItWorks from '../components/HowItWorks.vue'
 import HintsSection from '../components/HintsSection.vue'
 import CategoryCard from '../components/CategoryCard.vue'
 import DonationSection from '../components/DonationSection.vue'
@@ -48,10 +49,11 @@ onMounted(laden)
 
       <div class="mt-8 space-y-6">
         <AboutSection />
+        <HowItWorks />
         <HintsSection />
       </div>
 
-      <h2 class="mt-10 text-xl font-semibold text-slate-900">Die fünf Kategorien</h2>
+      <h2 class="mt-10 text-xl font-semibold text-slate-900">Was wir sammeln</h2>
       <div class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <CategoryCard
           v-for="k in KATEGORIEN"
