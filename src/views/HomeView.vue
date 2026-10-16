@@ -8,6 +8,7 @@ import OverallProgress from '../components/OverallProgress.vue'
 import AboutSection from '../components/AboutSection.vue'
 import HintsSection from '../components/HintsSection.vue'
 import CategoryCard from '../components/CategoryCard.vue'
+import DonationSection from '../components/DonationSection.vue'
 import UploadModal from '../components/UploadModal.vue'
 import SiteFooter from '../components/SiteFooter.vue'
 
@@ -53,6 +54,10 @@ onMounted(laden)
           :fotos="fotosFuer(k.slug)"
           @einreichen="oeffneUpload"
         />
+      </div>
+
+      <div class="mt-10">
+        <DonationSection />
       </div>
     </main>
 
