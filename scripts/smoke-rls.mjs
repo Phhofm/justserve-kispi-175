@@ -1,7 +1,8 @@
 // RLS-Smoke-Test: prüft mit dem öffentlichen anon-Key, dass
+//  0. der Key gültig ist und die Tabelle erreichbar,
 //  1. Einreichen (pending) erlaubt ist,
 //  2. pending-Beiträge NICHT öffentlich lesbar sind,
-//  3. ein Einreichen als «approved» abgelehnt wird.
+//  3. ein Einreichen als «approved» abgelehnt wird (RLS).
 //
 // Aufruf:  node --env-file=.env scripts/smoke-rls.mjs
 //
@@ -26,6 +27,15 @@ function pruefe(name, ok, detail = '') {
   if (!ok) fehler++
 }
 
+// 0. Key gültig / Tabelle erreichbar
+const { error: pingErr } = await supabase.from('beitraege').select('id').limit(1)
+if (pingErr) {
+  pruefe('API erreichbar und Key gültig', false, pingErr.message)
+  console.log('\nAbbruch: Key ungültig oder Tabelle fehlt.')
+  process.exit(1)
+}
+pruefe('API erreichbar und Key gültig', true)
+
 // 1. Einreichen als pending erlaubt
 const pfad = `pending/smoke-${Date.now()}.jpg`
 const { data: eingefuegt, error: insertErr } = await supabase
@@ -36,20 +46,22 @@ const { data: eingefuegt, error: insertErr } = await supabase
 
 pruefe('Einreichen (pending) erlaubt', !insertErr && !!eingefuegt?.id, insertErr?.message)
 
-// 2. pending ist öffentlich nicht lesbar
-const { data: sichtbar } = await supabase
+// 2. pending ist öffentlich nicht lesbar (ohne Fehler, einfach unsichtbar)
+const { data: sichtbar, error: selErr } = await supabase
   .from('beitraege')
   .select('id')
   .eq('id', eingefuegt?.id ?? '00000000-0000-0000-0000-000000000000')
 
-pruefe('pending nicht öffentlich lesbar', (sichtbar?.length ?? 0) === 0)
+pruefe('pending nicht öffentlich lesbar', !selErr && (sichtbar?.length ?? 0) === 0, selErr?.message)
 
-// 3. Einreichen als approved abgelehnt
+// 3. Einreichen als approved wird von RLS abgelehnt (nicht von einem Auth-Fehler)
 const { error: approvedErr } = await supabase
   .from('beitraege')
   .insert({ kategorie: 'autos', menge: 1, foto_pfad: pfad, status: 'approved' })
 
-pruefe('Einreichen als «approved» abgelehnt', !!approvedErr, approvedErr ? '' : 'unerwartet erlaubt')
+const istPolicyFehler =
+  !!approvedErr && (approvedErr.code === '42501' || /row-level security|violates/i.test(approvedErr.message))
+pruefe('Einreichen als «approved» abgelehnt (RLS)', istPolicyFehler, approvedErr?.message ?? 'unerwartet erlaubt')
 
 console.log(fehler === 0 ? '\nOK' : `\n${fehler} Prüfung(en) fehlgeschlagen`)
 process.exit(fehler === 0 ? 0 : 1)
