@@ -87,9 +87,12 @@ describe('HomeView', () => {
   it('streut Schriftstellen über die Seite, die mit den Kindern zuerst', async () => {
     const w = mount(HomeView)
     await flushPromises()
-    expect(w.text()).toContain('3. Nephi')
+    expect(w.text()).toContain('3. Nephi 17,21')
+    expect(w.text()).toContain('Matthäus 18,10')
     expect(w.text()).toContain('Johannes 14,26')
-    expect(w.text()).toContain('Matthäus 25,40')
+    expect(w.text()).toContain('LuB 18,10')
+    expect(w.text()).toContain('Jesaja 40,11')
+    expect(w.text()).toContain('3. Nephi 22,13')
   })
 
   it('nennt das Sammeljahr 2027 und das Jubiläum 2028', async () => {
