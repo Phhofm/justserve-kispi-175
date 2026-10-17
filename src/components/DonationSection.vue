@@ -43,7 +43,6 @@ const IDEEN = [
           <div class="h-full rounded-full bg-blue-600" style="width: 0%" />
         </div>
         <p class="mt-2 text-xs text-slate-500">
-          Ab 1’000 CHF Gesamtspende empfängt uns das Kinderspital zur offiziellen Scheck-Übergabe.
           Der Spendenstand wird nach dem Start der Aktion ergänzt.
         </p>
       </div>

@@ -4,7 +4,7 @@ Design-Dokument · 16. Oktober 2026 · Autor: Philip Hofmann (JustServe-Speziali
 
 ## 1. Absicht & Warum
 
-Die Kirche Jesu Christi der Heiligen der Letzten Tage feiert 2028 ihr **175-Jahr-Jubiläum in der Schweiz**. Der **Pfahl Zürich** (11 Einheiten) führt 2027 dazu ein gemeinnütziges Dienstprojekt durch: die Sammlung von **«Trösterli»** – kleinen Trost-Geschenken – für das **Kinderspital Zürich (Kispi)**.
+Die Kirche feiert 2028 ihr **175-Jahr-Jubiläum in der Schweiz**. Der **Pfahl Zürich** (11 Einheiten) führt 2027 dazu ein gemeinnütziges Dienstprojekt durch: die Sammlung von **«Trösterli»** – kleinen Trost-Geschenken – für das **Kinderspital Zürich (Kispi)**.
 
 Diese Website ist das öffentliche Schaufenster der Aktion. Sie
 

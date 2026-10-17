@@ -1,7 +1,7 @@
 # Trösterli für das Kinderspital Zürich
 
 Website der Sammelaktion **JustServe Pfahl Zürich × Kinderspital Zürich (2027)** – als Beitrag des
-Pfahls zum **175-Jahr-Jubiläum der Kirche Jesu Christi der Heiligen der Letzten Tage in der Schweiz**.
+Pfahls zum **175-Jahr-Jubiläum der Kirche in der Schweiz**.
 
 Mitglieder reichen Fotos ihrer gekauften «Trösterli» ein; die Website zeigt den Fortschritt pro
 Kategorie und gesamt und lässt alles zu einem Mosaik zusammenwachsen.
