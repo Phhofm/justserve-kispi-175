@@ -99,10 +99,19 @@ describe('HomeView', () => {
     expect(w.text()).toContain('2028')
   })
 
-  it('lädt über den obersten Button zum Mosaik ein', async () => {
+  it('bietet oben zwei gleichwertige Buttons: Mosaik und Beitrag einreichen', async () => {
     const w = mount(HomeView)
     await flushPromises()
     expect(w.find('a[href="#mosaik"]').exists()).toBe(true)
     expect(w.text()).toContain('Unser Mosaik')
+    expect(w.text()).toContain('Beitrag einreichen')
+  })
+
+  it('bietet Teilen, Zeitleiste und Kontakt an', async () => {
+    const w = mount(HomeView)
+    await flushPromises()
+    expect(w.text()).toContain('teilen')
+    expect(w.text()).toContain('Unser Weg')
+    expect(w.text()).toContain('Philip Hofmann')
   })
 })

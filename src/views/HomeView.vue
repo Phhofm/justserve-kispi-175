@@ -7,12 +7,14 @@ import HeroSection from '../components/HeroSection.vue'
 import OverallProgress from '../components/OverallProgress.vue'
 import ScriptureBand from '../components/ScriptureBand.vue'
 import AboutSection from '../components/AboutSection.vue'
+import Timeline from '../components/Timeline.vue'
 import HowItWorks from '../components/HowItWorks.vue'
 import HintsSection from '../components/HintsSection.vue'
 import CategoryCard from '../components/CategoryCard.vue'
 import MutmacherSection from '../components/MutmacherSection.vue'
 import DonationSection from '../components/DonationSection.vue'
 import MosaicSection from '../components/MosaicSection.vue'
+import KontaktSection from '../components/KontaktSection.vue'
 import UploadModal from '../components/UploadModal.vue'
 import SiteFooter from '../components/SiteFooter.vue'
 
@@ -45,24 +47,28 @@ onMounted(laden)
       Zum Inhalt springen
     </a>
 
-    <HeroSection :gesamtziel="fortschritt.ziel" />
+    <HeroSection :gesamtziel="fortschritt.ziel" @beitragen="oeffneUpload()" />
 
     <main id="main" class="mx-auto max-w-6xl px-4 py-8 sm:py-14">
-      <OverallProgress :fortschritt="fortschritt" />
-
-      <p v-if="fehler" class="mt-4 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
-        {{ fehler }}
-      </p>
-
-      <div class="mt-8 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-8">
+      <!-- Die Schriftstelle mit den Kindern steht ganz oben, direkt unter dem Hero. -->
+      <div class="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-8">
         <ScriptureBand
           stelle="3. Nephi 17,21"
           zitat="Und er nahm ihre **kleinen Kinder**, eines nach dem anderen, und **segnete** sie."
         />
       </div>
 
+      <div class="mt-6">
+        <OverallProgress :fortschritt="fortschritt" />
+      </div>
+
+      <p v-if="fehler" class="mt-4 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+        {{ fehler }}
+      </p>
+
       <div class="mt-6 space-y-6">
         <AboutSection />
+        <Timeline />
         <HowItWorks />
       </div>
 
@@ -117,6 +123,10 @@ onMounted(laden)
 
       <div class="mt-10">
         <MosaicSection :fotos="beitraege" />
+      </div>
+
+      <div class="mt-10">
+        <KontaktSection />
       </div>
     </main>
 
