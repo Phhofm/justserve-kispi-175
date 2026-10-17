@@ -17,9 +17,9 @@ defineEmits<{ beitragen: [] }>()
       <p class="mx-auto mt-5 max-w-2xl text-base text-blue-50 sm:text-lg">
         Viele Kinder im Kinderspital Zürich haben Schweres hinter sich. Mit einem kleinen Trösterli
         möchten wir ihnen Mitgefühl schenken: ein Lächeln ins Gesicht und ein wenig Ablenkung vor
-        einer Operation. Mach mit – allein, als Familie oder als Primarklasse:
+        einer Operation. Mach mit – allein, als Familie, als Klasse/Gruppe oder Gemeinde:
         {{ gesamtziel }} Trösterli, 175 aus jeder der fünf Kategorien. Als Pfahl Zürich zum
-        175-Jahr-Jubiläum der Kirche in der Schweiz.
+        175-Jahr-Jubiläum unserer Kirche in der Schweiz.
       </p>
 
       <div class="mx-auto mt-8 flex max-w-md gap-3">

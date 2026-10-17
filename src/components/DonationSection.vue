@@ -3,7 +3,7 @@ const spendenbild = `${import.meta.env.BASE_URL}spendenbild.svg`
 
 const IDEEN = [
   { icon: '🏃', titel: 'Sponsorenlauf', text: 'z. B. einmal rund um den Greifensee.' },
-  { icon: '🍰', titel: 'Kuchenverkauf', text: 'Nach der Kirche oder am Gemeindefest.' },
+  { icon: '🍰', titel: 'Kuchenverkauf', text: 'Nach dem Gottesdienst oder am Gemeindefest.' },
   { icon: '🧸', titel: 'Flohmarkt', text: 'Ausgedientes verkaufen, Erlös spenden.' },
 ]
 </script>

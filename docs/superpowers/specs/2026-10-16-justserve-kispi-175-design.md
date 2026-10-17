@@ -213,7 +213,7 @@ Vom Auftraggeber noch bereitzustellen (vor dem Build):
 > Auf den verschiedenen Abteilungen gibt es sog. Belohnungsboxen, aus welchen unsere Patientinnen und Patienten sich nach einer unangenehmen Behandlung ein Geschenkli aussuchen dürfen. Sie sind auch eine gute Ablenkung. Jährlich setzt das Kinderspital Zürich rund 150'000 Trösterli ein! Die Geschenke sollen nicht mehr als 1–3 Franken kosten.
 
 Dienstprojekt-Rahmung:
-> Wir machen ein **Dienstprojekt der anderen Art**: Gemeinsam sammeln wir Trösterli für das Kinderspital Zürich und bringen sie als **Trösterlipaket** vorbei – als Beitrag des Pfahls Zürich zum 175-Jahr-Jubiläum der Kirche in der Schweiz.
+> Wir machen ein **Dienstprojekt der anderen Art**: Gemeinsam sammeln wir Trösterli für das Kinderspital Zürich und bringen sie als **Trösterlipaket** vorbei – als Beitrag des Pfahls Zürich zum 175-Jahr-Jubiläum unserer Kirche in der Schweiz.
 
 ### Abschnitt «Was das Kinderspital braucht» (Hinweise, offizieller Kispi-Text)
 > Das Kinderspital ist ein besonderer Ort: neben der medizinischen Versorgung ist uns das Wohlbefinden unserer Patienten sowie deren Angehörigen ein grosses Anliegen. Damit sich Kinder und ihre Familien trotz Krankheit oder Unfall wohl fühlen können, möchten wir ihnen mit kleinen Besonderheiten den Alltag bunter gestalten. In den Wartebereichen des Notfalls und der Poliklinik sowie auf den Bettenstationen haben wir deshalb u.a. Spielsachen und «Trösterli-Gschänkli» für unsere jungen Patientinnen und Patienten. Diese sind sehr wichtig zur Ablenkung in oftmals schwierigen Situationen.
