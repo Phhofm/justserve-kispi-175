@@ -54,7 +54,7 @@ onMounted(laden)
       <div class="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-8">
         <ScriptureBand
           stelle="3. Nephi 17,21"
-          zitat="Und er nahm ihre **kleinen Kinder**, eines nach dem anderen, und **segnete** sie."
+          zitat="Und er **nahm ihre kleinen Kinder, eines nach dem anderen, und segnete sie**."
         />
       </div>
 
@@ -75,7 +75,7 @@ onMounted(laden)
       <div class="mt-6 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-8">
         <ScriptureBand
           stelle="Matthäus 18,10"
-          zitat="Hütet euch davor, einen von diesen Kleinen zu verachten! Denn ich sage euch: Ihre Engel im Himmel sehen stets das Angesicht meines himmlischen Vaters."
+          zitat="Hütet euch davor, einen von diesen Kleinen zu verachten! Denn ich sage euch: **Ihre Engel im Himmel sehen stets das Angesicht meines himmlischen Vaters.**"
         />
       </div>
 
@@ -120,7 +120,7 @@ onMounted(laden)
       <div class="mt-6 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-8">
         <ScriptureBand
           stelle="Jesaja 40,11"
-          zitat="Wie ein Hirt weidet er seine Herde, auf seinem Arm sammelt er die Lämmer, an seiner Brust trägt er sie, die Mutterschafe führt er behutsam."
+          zitat="Wie ein Hirt weidet er seine Herde, **auf seinem Arm sammelt er die Lämmer, an seiner Brust trägt er sie**, die Mutterschafe führt er behutsam."
         />
       </div>
 
