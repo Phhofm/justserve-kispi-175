@@ -53,8 +53,8 @@ const IDEEN = [
 
       <p class="mt-4 rounded-xl bg-blue-50 px-4 py-3 text-sm leading-relaxed text-blue-900">
         Im Vordergrund steht der gemeinsame Dienst: Trösterli sammeln, zusammen backen, gemeinsam
-        laufen. Geld ist eine zusätzliche, freiwillige Möglichkeit – für alle, die nicht einkaufen
-        können oder wollen.
+        laufen. Die Spende ist eine zusätzliche, freiwillige Möglichkeit – etwa für eine
+        Sponsorenaktion.
       </p>
 
       <div class="mt-4 rounded-xl bg-slate-50 p-4">
