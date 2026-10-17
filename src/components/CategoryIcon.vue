@@ -7,6 +7,7 @@ const ICONS: Record<CategorySlug, string> = {
   stempel: '🖍️',
   tiere: '🦁',
   buecher: '📚',
+  mutmacher: '🦸',
 }
 
 defineProps<{ slug: CategorySlug }>()

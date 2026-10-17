@@ -1,4 +1,10 @@
-export type CategorySlug = 'autos' | 'sticker' | 'stempel' | 'tiere' | 'buecher'
+export type CategorySlug =
+  | 'autos'
+  | 'sticker'
+  | 'stempel'
+  | 'tiere'
+  | 'buecher'
+  | 'mutmacher'
 
 export type Status = 'pending' | 'approved' | 'rejected'
 
@@ -7,6 +13,8 @@ export interface Kategorie {
   label: string
   farbe: string
   beschreibung: string
+  /** Zählt diese Kategorie zum Gesamtziel (875)? Mutmacher-Karten zählen separat. */
+  imGesamtziel: boolean
 }
 
 export interface Beitrag {

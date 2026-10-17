@@ -5,14 +5,14 @@ defineEmits<{ beitragen: [] }>()
 
 <template>
   <header class="relative overflow-hidden bg-gradient-to-br from-blue-700 via-blue-600 to-indigo-700 text-white">
-    <div class="mx-auto max-w-5xl px-4 py-16 text-center sm:py-24">
+    <div class="mx-auto max-w-5xl px-4 py-14 text-center sm:py-24">
       <p class="inline-block rounded-full bg-white/15 px-4 py-1 text-sm font-medium tracking-wide">
         175 Jahre Kirche in der Schweiz
       </p>
-      <h1 class="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">
+      <h1 class="mt-5 text-3xl font-bold tracking-tight sm:text-5xl">
         Trösterli für das Kinderspital Zürich
       </h1>
-      <p class="mx-auto mt-5 max-w-2xl text-lg text-blue-50">
+      <p class="mx-auto mt-5 max-w-2xl text-base text-blue-50 sm:text-lg">
         Es geht nicht um teure Geschenke, sondern ums Helfen und Mitfühlen. Geht als Familie,
         Primarklasse oder allein einkaufen – und schenkt den tapferen Kindern im Kinderspital Zürich
         ein Lächeln: {{ gesamtziel }} Trösterli, 175 aus jeder der fünf Kategorien. Als Pfahl Zürich

@@ -2,11 +2,11 @@ import { describe, it, expect } from 'vitest'
 import { berechneFortschritt, balkenBreite } from './progress'
 
 describe('berechneFortschritt', () => {
-  it('liefert bei leerer Eingabe Null und das Gesamtziel 875', () => {
+  it('liefert bei leerer Eingabe Null, sechs Kategorien und das Gesamtziel 875', () => {
     const f = berechneFortschritt([])
     expect(f.gesammelt).toBe(0)
     expect(f.ziel).toBe(875)
-    expect(f.kategorien).toHaveLength(5)
+    expect(f.kategorien).toHaveLength(6)
     for (const k of f.kategorien) {
       expect(k.gesammelt).toBe(0)
       expect(k.ziel).toBe(175)
@@ -21,6 +21,13 @@ describe('berechneFortschritt', () => {
     ])
     expect(f.kategorien.find((k) => k.slug === 'autos')?.gesammelt).toBe(15)
     expect(f.gesammelt).toBe(18)
+  })
+
+  it('zählt Mutmacher-Karten separat, nicht zum Gesamtziel von 875', () => {
+    const f = berechneFortschritt([{ kategorie: 'mutmacher', menge: 40 }])
+    expect(f.kategorien.find((k) => k.slug === 'mutmacher')?.gesammelt).toBe(40)
+    expect(f.gesammelt).toBe(0)
+    expect(f.ziel).toBe(875)
   })
 
   it('ignoriert unbekannte Kategorien und ungültige Mengen', () => {

@@ -75,10 +75,19 @@ describe('HomeView', () => {
     expect(w.text()).toContain('Übergabe')
   })
 
-  it('zeigt die Mutmacher-Karten als eigenen Abschnitt, markiert mit «In Abklärung»', async () => {
+  it('zeigt die Mutmacher-Karten als eigenen Abschnitt mit Zähler, markiert «In Abklärung»', async () => {
     const w = mount(HomeView)
     await flushPromises()
+    expect(w.text()).toContain('Wie der Primi mithelfen kann')
     expect(w.text()).toContain('Mutmacher')
     expect(w.text()).toContain('In Abklärung')
+    expect(w.findAll('article')).toHaveLength(5)
+  })
+
+  it('streut Schriftstellen über die Seite', async () => {
+    const w = mount(HomeView)
+    await flushPromises()
+    expect(w.text()).toContain('Johannes 14,26')
+    expect(w.text()).toContain('Matthäus 25,40')
   })
 })

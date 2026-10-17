@@ -2,8 +2,13 @@ import { describe, it, expect } from 'vitest'
 import { KATEGORIEN, ZIEL_PRO_KATEGORIE, kategorieLabel } from './categories'
 
 describe('Kategorien-Konfiguration', () => {
-  it('hat genau fünf Kategorien', () => {
-    expect(KATEGORIEN).toHaveLength(5)
+  it('hat sechs Kategorien (fünf Trösterli + Mutmacher-Karten)', () => {
+    expect(KATEGORIEN).toHaveLength(6)
+  })
+
+  it('nur die fünf Trösterli-Kategorien zählen zum Gesamtziel', () => {
+    expect(KATEGORIEN.filter((k) => k.imGesamtziel)).toHaveLength(5)
+    expect(KATEGORIEN.filter((k) => !k.imGesamtziel).map((k) => k.slug)).toEqual(['mutmacher'])
   })
 
   it('hat eindeutige Slugs', () => {
@@ -26,5 +31,6 @@ describe('Kategorien-Konfiguration', () => {
   it('liefert das deutsche Label zu einem Slug', () => {
     expect(kategorieLabel('autos')).toBe('Kleine Autos')
     expect(kategorieLabel('buecher')).toBe('Kinderbücher & Puzzles')
+    expect(kategorieLabel('mutmacher')).toBe('Mutmacher-Karten')
   })
 })

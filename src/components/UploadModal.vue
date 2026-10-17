@@ -82,7 +82,7 @@ async function senden() {
     @click.self="emit('geschlossen')"
     @keydown.esc="emit('geschlossen')"
   >
-    <div class="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
+    <div class="max-h-[92dvh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-5 shadow-xl sm:p-6">
       <div v-if="fertig" class="text-center">
         <p class="text-3xl">🎉</p>
         <h2 class="mt-2 text-lg font-semibold text-slate-900">

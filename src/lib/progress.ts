@@ -41,8 +41,12 @@ export function berechneFortschritt(
     }
   })
 
-  const gesammelt = kategorien.reduce((sum, k) => sum + k.gesammelt, 0)
-  const ziel = ZIEL_PRO_KATEGORIE * KATEGORIEN.length
+  // Nur die Trösterli-Kategorien zählen zum Gesamtziel (5 × 175 = 875).
+  const imGesamtziel = kategorien.filter(
+    (k) => KATEGORIEN.find((c) => c.slug === k.slug)?.imGesamtziel,
+  )
+  const gesammelt = imGesamtziel.reduce((sum, k) => sum + k.gesammelt, 0)
+  const ziel = ZIEL_PRO_KATEGORIE * imGesamtziel.length
 
   return {
     gesammelt,

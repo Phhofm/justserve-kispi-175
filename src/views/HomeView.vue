@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { KATEGORIEN } from '../lib/categories'
+import { computed, onMounted, ref } from 'vue'
+import { KATEGORIEN_IM_GESAMTZIEL } from '../lib/categories'
 import type { CategorySlug } from '../lib/types'
 import { useContributions } from '../composables/useContributions'
 import HeroSection from '../components/HeroSection.vue'
 import OverallProgress from '../components/OverallProgress.vue'
+import ScriptureBand from '../components/ScriptureBand.vue'
 import AboutSection from '../components/AboutSection.vue'
 import HowItWorks from '../components/HowItWorks.vue'
 import HintsSection from '../components/HintsSection.vue'
-import MutmacherSection from '../components/MutmacherSection.vue'
 import CategoryCard from '../components/CategoryCard.vue'
+import MutmacherSection from '../components/MutmacherSection.vue'
 import DonationSection from '../components/DonationSection.vue'
 import MosaicSection from '../components/MosaicSection.vue'
 import UploadModal from '../components/UploadModal.vue'
@@ -18,6 +19,10 @@ import SiteFooter from '../components/SiteFooter.vue'
 const { beitraege, fortschritt, fehler, laden } = useContributions()
 const uploadOffen = ref(false)
 const startKategorie = ref<CategorySlug | undefined>(undefined)
+
+const mutmacher = computed(
+  () => fortschritt.value.kategorien.find((k) => k.slug === 'mutmacher')!,
+)
 
 function fotosFuer(slug: CategorySlug) {
   return beitraege.value.filter((b) => b.kategorie === slug)
@@ -42,23 +47,37 @@ onMounted(laden)
 
     <HeroSection :gesamtziel="fortschritt.ziel" @beitragen="oeffneUpload()" />
 
-    <main id="main" class="mx-auto max-w-6xl px-4 py-10 sm:py-14">
+    <main id="main" class="mx-auto max-w-6xl px-4 py-8 sm:py-14">
       <OverallProgress :fortschritt="fortschritt" />
 
       <p v-if="fehler" class="mt-4 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
         {{ fehler }}
       </p>
 
-      <div class="mt-8 space-y-6">
+      <div class="mt-8 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-8">
+        <ScriptureBand
+          stelle="Johannes 14,26"
+          zitat="Der Tröster aber, der Heilige Geist, den der Vater in meinem Namen senden wird, der wird euch alles lehren."
+        />
+      </div>
+
+      <div class="mt-6 space-y-6">
         <AboutSection />
         <HowItWorks />
         <HintsSection />
       </div>
 
+      <div class="mt-6 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-8">
+        <ScriptureBand
+          stelle="Mosia 2,17"
+          zitat="Wenn ihr im Dienst eurer Mitmenschen steht, seid ihr im Dienst eures Gottes."
+        />
+      </div>
+
       <h2 class="mt-10 text-xl font-semibold text-slate-900">Was wir sammeln</h2>
       <div class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <CategoryCard
-          v-for="k in KATEGORIEN"
+          v-for="k in KATEGORIEN_IM_GESAMTZIEL"
           :key="k.slug"
           :kategorie="k"
           :fortschritt="fortschritt.kategorien.find((x) => x.slug === k.slug)!"
@@ -67,8 +86,19 @@ onMounted(laden)
         />
       </div>
 
-      <div class="mt-10">
-        <MutmacherSection />
+      <div class="mt-6 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-8">
+        <ScriptureBand
+          stelle="Matthäus 25,40"
+          zitat="Was ihr für einen meiner geringsten Brüder getan habt, das habt ihr mir getan."
+        />
+      </div>
+
+      <div class="mt-6">
+        <MutmacherSection
+          :fortschritt="mutmacher"
+          :fotos="fotosFuer('mutmacher')"
+          @einreichen="oeffneUpload('mutmacher')"
+        />
       </div>
 
       <div class="mt-10">
