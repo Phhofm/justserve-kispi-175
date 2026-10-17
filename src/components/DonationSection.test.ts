@@ -21,4 +21,9 @@ describe('DonationSection', () => {
     expect(w.text()).toContain('Kinderspital')
     expect(w.text()).toContain('keine Trösterli')
   })
+
+  it('zeigt ein Spendenziel', () => {
+    const w = mount(DonationSection)
+    expect(w.text()).toContain('CHF')
+  })
 })

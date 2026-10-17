@@ -51,11 +51,27 @@ const IDEEN = [
         Familie oder als ganze Gemeinde: Ihr entscheidet, was passt.
       </p>
 
-      <p class="mt-4 rounded-xl bg-slate-50 px-4 py-3 text-sm leading-relaxed text-slate-700">
-        Auch direkt spenden ist möglich: Wer lieber Geld gibt, als Sachen zu kaufen, kann das
-        Kinderspital unterstützen. Das Geld kommt dort an, wo es am dringendsten gebraucht wird –
-        wir kaufen davon keine Trösterli.
+      <p class="mt-4 rounded-xl bg-blue-50 px-4 py-3 text-sm leading-relaxed text-blue-900">
+        Im Vordergrund steht der gemeinsame Dienst: Trösterli sammeln, zusammen backen, gemeinsam
+        laufen. Geld ist eine zusätzliche, freiwillige Möglichkeit – für alle, die nicht einkaufen
+        können oder wollen.
       </p>
+
+      <div class="mt-4 rounded-xl bg-slate-50 p-4">
+        <div class="flex items-baseline justify-between">
+          <span class="text-sm text-slate-500">Spendenziel</span>
+          <span class="text-lg font-bold text-blue-700">1’000 CHF</span>
+        </div>
+        <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-200">
+          <div class="h-full rounded-full bg-blue-600" style="width: 0%" />
+        </div>
+        <p class="mt-2 text-xs leading-relaxed text-slate-500">
+          Das Ziel ist eine Orientierung, kein Muss – das Kinderspital freut sich über jede Spende.
+          Der aktuelle Stand folgt, sobald die Aktion läuft. Das Geld geht direkt ans Kinderspital
+          und wird dort eingesetzt, wo es am dringendsten gebraucht wird – wir kaufen davon keine
+          Trösterli.
+        </p>
+      </div>
 
       <button
         type="button"
