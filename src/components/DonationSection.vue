@@ -2,9 +2,21 @@
 const spendenbild = `${import.meta.env.BASE_URL}spendenbild.svg`
 
 const IDEEN = [
-  { icon: '🏃', titel: 'Sponsorenlauf', text: 'z. B. einmal rund um den Greifensee.' },
-  { icon: '🍰', titel: 'Kuchenverkauf', text: 'Nach dem Gottesdienst oder am Gemeindefest.' },
-  { icon: '🧸', titel: 'Flohmarkt', text: 'Ausgedientes verkaufen, Erlös spenden.' },
+  {
+    icon: '🏃',
+    titel: 'Sponsorenlauf',
+    text: 'An einem bestehenden Lauf mitmachen (z. B. Greifenseelauf) und fürs Kinderspital sammeln lassen.',
+  },
+  {
+    icon: '🍰',
+    titel: 'Kuchenverkauf',
+    text: 'An einem Fest oder einer Pfahlaktivität.',
+  },
+  {
+    icon: '🧸',
+    titel: 'Flohmarkt',
+    text: 'Ausgedientes verkaufen und den Erlös spenden.',
+  },
 ]
 </script>
 
@@ -18,8 +30,9 @@ const IDEEN = [
     <div class="p-5 sm:p-8">
       <h2 class="text-xl font-semibold text-slate-900">Gemeindeaktion?</h2>
       <p class="mt-2 leading-relaxed text-slate-600">
-        Ihr möchtet als Gemeinde etwas Gemeinsames auf die Beine stellen? Startet eine Aktion und
-        spendet den Erlös – zusätzlich oder anstelle von Trösterli.
+        Ihr möchtet als Gemeinde – oder auch als Einzelne – etwas Gemeinsames auf die Beine stellen?
+        Den Erlös könnt Ihr direkt für die Trösterli spenden, zusätzlich oder anstelle von Sachen.
+        Hier ein paar Ideen als Anregung:
       </p>
 
       <ul class="mt-4 grid gap-2 sm:grid-cols-3">
@@ -33,6 +46,11 @@ const IDEEN = [
           <p class="text-slate-600">{{ i.text }}</p>
         </li>
       </ul>
+
+      <p class="mt-3 text-xs text-slate-500">
+        Das sind nur Beispiele und Ideen – keine fest geplanten Anlässe des Pfahls. Ob allein, als
+        Familie oder als ganze Gemeinde: Ihr entscheidet, was passt.
+      </p>
 
       <div class="mt-4 rounded-xl bg-slate-50 p-4">
         <div class="flex items-baseline justify-between">
