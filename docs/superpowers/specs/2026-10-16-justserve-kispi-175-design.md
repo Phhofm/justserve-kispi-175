@@ -222,3 +222,14 @@ Dienstprojekt-Rahmung:
 > - Neue und möglichst originalverpackte Spielsachen sind willkommen und bereiten unseren Patienten grosse Freude. Bitte verpacken Sie **KEINE** Spielsachen und Sachspenden in Geschenkpapier.
 > - **Achtung:** Stofftiere können wir nicht annehmen, da sie sich nicht desinfizieren lassen und deshalb für immungeschwächte Kinder gefährlich sind.
 
+## 15. Feedback 17.10.2026 (Community, Familien, Ablauf)
+
+- **Preis bleibt 1–3 Franken** (nicht 1–5). Offizieller Kispi-Wert. Wird im Regel-Callout prominent gezeigt, damit niemand Teures kauft oder auspackt.
+- **Spenden-Link bleibt deaktiviert** («Bald verfügbar»), bis die eigene Aktion des Pfahls steht.
+- **Regeln** («Gut zu wissen») als drei hervorgehobene Kacheln: *Neu & originalverpackt*, *Klein & günstig (1–3 Franken)*, *Keine Stofftiere*. Zusätzlich der Hinweis **kein Geschenkpapier**.
+- **Hero und «Über die Aktion»**: wärmerer Dienst- und Familien-Ton («nicht um teure Geschenke, sondern ums Helfen und Mitfühlen»; «als Familie, Primarklasse oder allein»).
+- **Ablauf** («So funktioniert's») auf **5 Schritte** erweitert: Einkaufen & hochladen → in der Kapelle abgeben → Pfahlkonferenz Herbst 2027 → Sortieren im Institut (JAE) → Übergabe ans Kinderspital.
+- **Mutmacher-Karten** als **eigener Abschnitt** («Wie der Primi mithelfen kann»), **unterhalb** der Kategorien, **oberhalb** der Spende. Sie sind **separat** und zählen **nicht** zu den 875. Status: **«In Abklärung»**, da noch unklar ist, ob das Kinderspital handgemachte Karten annimmt. Kinder malen z. B. eine Superheldin/einen Superhelden und schreiben «Du bist mutig» / «Du bist stark» darauf.
+- **Spenden-Abschnitt**: zusätzlich die Idee von **Kuchenverkauf, Sponsorenlauf** oder Bastelaktion; Hinweis, dass ab **1’000 CHF** die offizielle Scheck-Übergabe beim Kispi möglich ist.
+
+

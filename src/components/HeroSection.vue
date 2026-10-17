@@ -13,9 +13,10 @@ defineEmits<{ beitragen: [] }>()
         Trösterli für das Kinderspital Zürich
       </h1>
       <p class="mx-auto mt-5 max-w-2xl text-lg text-blue-50">
-        Gemeinsam sammeln wir Trösterli für die tapferen Kinder im Kinderspital Zürich:
-        {{ gesamtziel }} kleine Freuden, 175 aus jeder der fünf Kategorien. Als Pfahl Zürich zum
-        175-Jahr-Jubiläum der Kirche in der Schweiz.
+        Es geht nicht um teure Geschenke, sondern ums Helfen und Mitfühlen. Geht als Familie,
+        Primarklasse oder allein einkaufen – und schenkt den tapferen Kindern im Kinderspital Zürich
+        ein Lächeln: {{ gesamtziel }} Trösterli, 175 aus jeder der fünf Kategorien. Als Pfahl Zürich
+        zum 175-Jahr-Jubiläum der Kirche in der Schweiz.
       </p>
       <button
         type="button"

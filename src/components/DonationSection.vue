@@ -11,9 +11,14 @@ const spendenbild = `${import.meta.env.BASE_URL}spendenbild.svg`
     />
     <div class="p-6 sm:p-8">
       <h2 class="text-xl font-semibold text-slate-900">Lieber spenden?</h2>
-      <p class="mt-2 text-slate-600">
+      <p class="mt-2 leading-relaxed text-slate-600">
         Wer keine Sachspende abgeben möchte, kann die Aktion auch mit einer Geldspende unterstützen –
         zusätzlich oder anstelle von Trösterli.
+      </p>
+      <p class="mt-2 leading-relaxed text-slate-600">
+        Oder macht etwas Gemeinsames daraus: ein <strong>Kuchenverkauf</strong>, ein
+        <strong>Sponsorenlauf</strong> oder eine Bastelaktion in der Gemeinde. Der Erlös fliesst
+        direkt in die Aktion.
       </p>
 
       <div class="mt-4 rounded-xl bg-slate-50 p-4">
@@ -24,7 +29,10 @@ const spendenbild = `${import.meta.env.BASE_URL}spendenbild.svg`
         <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-200">
           <div class="h-full rounded-full bg-blue-600" style="width: 0%" />
         </div>
-        <p class="mt-2 text-xs text-slate-400">Spendenstand wird nach dem Start der Aktion ergänzt.</p>
+        <p class="mt-2 text-xs text-slate-500">
+          Ab 1’000 CHF Gesamtspende empfängt uns das Kinderspital zur offiziellen Scheck-Übergabe.
+          Der Spendenstand wird nach dem Start der Aktion ergänzt.
+        </p>
       </div>
 
       <button

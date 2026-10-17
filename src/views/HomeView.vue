@@ -8,6 +8,7 @@ import OverallProgress from '../components/OverallProgress.vue'
 import AboutSection from '../components/AboutSection.vue'
 import HowItWorks from '../components/HowItWorks.vue'
 import HintsSection from '../components/HintsSection.vue'
+import MutmacherSection from '../components/MutmacherSection.vue'
 import CategoryCard from '../components/CategoryCard.vue'
 import DonationSection from '../components/DonationSection.vue'
 import MosaicSection from '../components/MosaicSection.vue'
@@ -64,6 +65,10 @@ onMounted(laden)
           :fotos="fotosFuer(k.slug)"
           @einreichen="oeffneUpload"
         />
+      </div>
+
+      <div class="mt-10">
+        <MutmacherSection />
       </div>
 
       <div class="mt-10">

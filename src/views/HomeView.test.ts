@@ -67,10 +67,18 @@ describe('HomeView', () => {
     expect(w.text()).toContain('Stofftiere')
   })
 
-  it('erklärt in drei Schritten, wie man mitmacht', async () => {
+  it('erklärt den Ablauf vom Einkauf bis zur Übergabe', async () => {
     const w = mount(HomeView)
     await flushPromises()
     expect(w.text()).toContain('So funktioniert')
-    expect(w.text()).toContain('In die Gemeinde')
+    expect(w.text()).toContain('Kapelle')
+    expect(w.text()).toContain('Übergabe')
+  })
+
+  it('zeigt die Mutmacher-Karten als eigenen Abschnitt, markiert mit «In Abklärung»', async () => {
+    const w = mount(HomeView)
+    await flushPromises()
+    expect(w.text()).toContain('Mutmacher')
+    expect(w.text()).toContain('In Abklärung')
   })
 })
