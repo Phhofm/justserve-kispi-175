@@ -31,8 +31,7 @@ const IDEEN = [
       <h2 class="text-xl font-semibold text-slate-900">Gemeindeaktion?</h2>
       <p class="mt-2 leading-relaxed text-slate-600">
         Ihr möchtet als Gemeinde – oder auch als Einzelne – etwas Gemeinsames auf die Beine stellen?
-        Den Erlös könnt Ihr direkt für die Trösterli spenden, zusätzlich oder anstelle von Sachen.
-        Hier ein paar Ideen als Anregung:
+        Den Erlös könnt Ihr direkt dem Kinderspital spenden. Hier ein paar Ideen als Anregung:
       </p>
 
       <ul class="mt-4 grid gap-2 sm:grid-cols-3">
@@ -52,18 +51,11 @@ const IDEEN = [
         Familie oder als ganze Gemeinde: Ihr entscheidet, was passt.
       </p>
 
-      <div class="mt-4 rounded-xl bg-slate-50 p-4">
-        <div class="flex items-baseline justify-between">
-          <span class="text-sm text-slate-500">Spendenziel</span>
-          <span class="text-lg font-bold text-blue-700">1’000 CHF</span>
-        </div>
-        <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-200">
-          <div class="h-full rounded-full bg-blue-600" style="width: 0%" />
-        </div>
-        <p class="mt-2 text-xs text-slate-500">
-          Der Spendenstand wird nach dem Start der Aktion ergänzt.
-        </p>
-      </div>
+      <p class="mt-4 rounded-xl bg-slate-50 px-4 py-3 text-sm leading-relaxed text-slate-700">
+        Auch direkt spenden ist möglich: Wer lieber Geld gibt, als Sachen zu kaufen, kann das
+        Kinderspital unterstützen. Das Geld kommt dort an, wo es am dringendsten gebraucht wird –
+        wir kaufen davon keine Trösterli.
+      </p>
 
       <button
         type="button"

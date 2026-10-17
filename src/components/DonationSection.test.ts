@@ -16,8 +16,9 @@ describe('DonationSection', () => {
     expect(w.html()).not.toContain('spendenaktion.kispi.uzh.ch')
   })
 
-  it('zeigt das Spendenziel', () => {
+  it('erklärt, dass Spenden direkt ans Kinderspital gehen und nicht in Trösterli', () => {
     const w = mount(DonationSection)
-    expect(w.text()).toContain('CHF')
+    expect(w.text()).toContain('Kinderspital')
+    expect(w.text()).toContain('keine Trösterli')
   })
 })
