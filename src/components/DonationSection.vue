@@ -1,5 +1,11 @@
 <script setup lang="ts">
 const spendenbild = `${import.meta.env.BASE_URL}spendenbild.svg`
+
+const IDEEN = [
+  { icon: '🏃', titel: 'Sponsorenlauf', text: 'z. B. einmal rund um den Greifensee.' },
+  { icon: '🍰', titel: 'Kuchenverkauf', text: 'Nach der Kirche oder am Gemeindefest.' },
+  { icon: '🧸', titel: 'Flohmarkt', text: 'Ausgedientes verkaufen, Erlös spenden.' },
+]
 </script>
 
 <template>
@@ -7,19 +13,26 @@ const spendenbild = `${import.meta.env.BASE_URL}spendenbild.svg`
     <img
       :src="spendenbild"
       alt="Platzhalterbild der Spendenaktion für das Kinderspital Zürich"
-      class="h-48 w-full object-cover sm:h-auto sm:w-2/5"
+      class="h-44 w-full object-cover sm:h-auto sm:w-2/5"
     />
-    <div class="p-6 sm:p-8">
-      <h2 class="text-xl font-semibold text-slate-900">Lieber spenden?</h2>
+    <div class="p-5 sm:p-8">
+      <h2 class="text-xl font-semibold text-slate-900">Gemeindeaktion?</h2>
       <p class="mt-2 leading-relaxed text-slate-600">
-        Wer keine Sachspende abgeben möchte, kann die Aktion auch mit einer Geldspende unterstützen –
-        zusätzlich oder anstelle von Trösterli.
+        Ihr möchtet als Gemeinde etwas Gemeinsames auf die Beine stellen? Startet eine Aktion und
+        spendet den Erlös – zusätzlich oder anstelle von Trösterli.
       </p>
-      <p class="mt-2 leading-relaxed text-slate-600">
-        Oder macht etwas Gemeinsames daraus: ein <strong>Kuchenverkauf</strong>, ein
-        <strong>Sponsorenlauf</strong> oder eine Bastelaktion in der Gemeinde. Der Erlös fliesst
-        direkt in die Aktion.
-      </p>
+
+      <ul class="mt-4 grid gap-2 sm:grid-cols-3">
+        <li
+          v-for="i in IDEEN"
+          :key="i.titel"
+          class="rounded-xl bg-slate-50 p-3 text-sm text-slate-700"
+        >
+          <span class="text-lg" aria-hidden="true">{{ i.icon }}</span>
+          <p class="mt-1 font-semibold text-slate-900">{{ i.titel }}</p>
+          <p class="text-slate-600">{{ i.text }}</p>
+        </li>
+      </ul>
 
       <div class="mt-4 rounded-xl bg-slate-50 p-4">
         <div class="flex items-baseline justify-between">

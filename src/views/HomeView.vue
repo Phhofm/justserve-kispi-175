@@ -45,7 +45,7 @@ onMounted(laden)
       Zum Inhalt springen
     </a>
 
-    <HeroSection :gesamtziel="fortschritt.ziel" @beitragen="oeffneUpload()" />
+    <HeroSection :gesamtziel="fortschritt.ziel" />
 
     <main id="main" class="mx-auto max-w-6xl px-4 py-8 sm:py-14">
       <OverallProgress :fortschritt="fortschritt" />
@@ -56,21 +56,31 @@ onMounted(laden)
 
       <div class="mt-8 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-8">
         <ScriptureBand
-          stelle="Johannes 14,26"
-          zitat="Der Tröster aber, der Heilige Geist, den der Vater in meinem Namen senden wird, der wird euch alles lehren."
+          stelle="3. Nephi 17,21"
+          zitat="Und er nahm ihre **kleinen Kinder**, eines nach dem anderen, und **segnete** sie."
         />
       </div>
 
       <div class="mt-6 space-y-6">
         <AboutSection />
         <HowItWorks />
-        <HintsSection />
       </div>
 
       <div class="mt-6 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-8">
         <ScriptureBand
           stelle="Mosia 2,17"
           zitat="Wenn ihr im Dienst eurer Mitmenschen steht, seid ihr im Dienst eures Gottes."
+        />
+      </div>
+
+      <div class="mt-6">
+        <HintsSection />
+      </div>
+
+      <div class="mt-6 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-8">
+        <ScriptureBand
+          stelle="Johannes 14,26"
+          zitat="Der **Tröster** aber, der Heilige Geist, den der Vater in meinem Namen senden wird, der wird euch alles lehren."
         />
       </div>
 

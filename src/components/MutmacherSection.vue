@@ -3,7 +3,6 @@ import type { Beitrag } from '../lib/types'
 import type { KategorieFortschritt } from '../lib/progress'
 import ProgressBar from './ProgressBar.vue'
 import PhotoGrid from './PhotoGrid.vue'
-import ScriptureBand from './ScriptureBand.vue'
 
 defineProps<{ fortschritt: KategorieFortschritt; fotos: Beitrag[] }>()
 defineEmits<{ einreichen: [] }>()
@@ -52,17 +51,8 @@ defineEmits<{ einreichen: [] }>()
       Mutmacher-Karte hochladen
     </button>
 
-    <p class="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-sm leading-relaxed text-amber-900">
-      Mutmacher-Karten sind <strong>separat</strong> von den 875 Trösterli und zählen nicht in den
-      grossen Zähler. Ob und wie das Kinderspital sie annimmt, klären wir gerade ab – deshalb «in
-      Abklärung». Hochladen darfst Du sie aber bereits.
+    <p class="mt-4 text-sm text-slate-500">
+      Wir klären gerade mit dem Kinderspital ab, ob und wie handgemachte Karten angenommen werden.
     </p>
-
-    <div class="mt-6 border-t border-slate-100 pt-6">
-      <ScriptureBand
-        stelle="3. Nephi 17,21"
-        zitat="Und er nahm ihre kleinen Kinder, eines nach dem anderen, und segnete sie."
-      />
-    </div>
   </section>
 </template>

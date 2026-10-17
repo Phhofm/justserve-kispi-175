@@ -84,10 +84,25 @@ describe('HomeView', () => {
     expect(w.findAll('article')).toHaveLength(5)
   })
 
-  it('streut Schriftstellen über die Seite', async () => {
+  it('streut Schriftstellen über die Seite, die mit den Kindern zuerst', async () => {
     const w = mount(HomeView)
     await flushPromises()
+    expect(w.text()).toContain('3. Nephi')
     expect(w.text()).toContain('Johannes 14,26')
     expect(w.text()).toContain('Matthäus 25,40')
+  })
+
+  it('nennt das Sammeljahr 2027 und das Jubiläum 2028', async () => {
+    const w = mount(HomeView)
+    await flushPromises()
+    expect(w.text()).toContain('2027')
+    expect(w.text()).toContain('2028')
+  })
+
+  it('lädt über den obersten Button zum Mosaik ein', async () => {
+    const w = mount(HomeView)
+    await flushPromises()
+    expect(w.find('a[href="#mosaik"]').exists()).toBe(true)
+    expect(w.text()).toContain('Unser Mosaik')
   })
 })

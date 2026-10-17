@@ -1,6 +1,5 @@
 <script setup lang="ts">
 defineProps<{ gesamtziel: number }>()
-defineEmits<{ beitragen: [] }>()
 </script>
 
 <template>
@@ -18,13 +17,12 @@ defineEmits<{ beitragen: [] }>()
         ein Lächeln: {{ gesamtziel }} Trösterli, 175 aus jeder der fünf Kategorien. Als Pfahl Zürich
         zum 175-Jahr-Jubiläum der Kirche in der Schweiz.
       </p>
-      <button
-        type="button"
+      <a
+        href="#mosaik"
         class="mt-8 inline-flex items-center rounded-full bg-white px-6 py-3 text-base font-semibold text-blue-700 shadow-lg transition hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-700"
-        @click="$emit('beitragen')"
       >
-        Jetzt beitragen
-      </button>
+        Unser Mosaik
+      </a>
     </div>
   </header>
 </template>
