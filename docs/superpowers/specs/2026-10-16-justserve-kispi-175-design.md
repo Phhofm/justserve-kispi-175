@@ -232,4 +232,17 @@ Dienstprojekt-Rahmung:
 - **Mutmacher-Karten** als **eigener Abschnitt** («Wie der Primi mithelfen kann»), **unterhalb** der Kategorien, **oberhalb** der Spende. Sie sind **separat** und zählen **nicht** zu den 875. Status: **«In Abklärung»**, da noch unklar ist, ob das Kinderspital handgemachte Karten annimmt. Kinder malen z. B. eine Superheldin/einen Superhelden und schreiben «Du bist mutig» / «Du bist stark» darauf.
 - **Spenden-Abschnitt**: zusätzlich die Idee von **Kuchenverkauf, Sponsorenlauf** oder Bastelaktion; Hinweis, dass ab **1’000 CHF** die offizielle Scheck-Übergabe beim Kispi möglich ist.
 
+## 16. Feedback 17.10.2026 (Sinn früher, Buttons, Teilen, Zeit, Kontakt)
+
+- **Sinn des Projekts nach oben**: Der Abschnitt «Über die Aktion» beginnt jetzt mit dem Warum (Kinder trotz Krankheit/Unfall, Wartebereiche, Ablenkung und Trost). Ohne Fettdruck in diesem Abschnitt.
+- **Formulierung**: «Trost» statt «Lächeln» im Hero (passt zum Namen «Trösterli»).
+- **2027/2028 erklärt**: «Dienstprojekt für 2027 – unser Beitrag als Pfahl Zürich an die Kinder. Und weil 2028 unsere 175-Jahr-Jubiläumsfeier ansteht, sammeln wir 175 Trösterli aus jeder Kategorie.»
+- **Zwei gleich grosse Hero-Buttons**: «Unser Mosaik» (sanftes Autoscrollen zum Mosaik) und «Beitrag einreichen» (öffnet das Upload-Formular).
+- **Teilen-Button** («Aktion teilen»): nutzt die Web-Share-API, sonst WhatsApp-Link.
+- **Zeitleiste «Unser Weg»** als Grafik: Frühjahr 2027 Start → 2027 Sammeln → Herbst 2027 Sortieren & Übergeben → 2028 Jubiläum.
+- **Kinder-Schriftstelle zuerst**: 3. Nephi 17,21 direkt unter dem Hero, noch vor dem Fortschritt. «kleine Kinder» und «segnete» fett.
+- **Kontakt-Abschnitt**: Philip Hofmann, JustServe-Spezialist Pfahl Zürich. Allgemeine JustServe-E-Mail wird noch eingerichtet (im Code als `KONTAKT_EMAIL` vorbereitet).
+- **Mutmacher-Hinweis entschärft**: Der Satz «separat, zählt nicht zum Zähler» ist entfernt (klang nach Ausschluss); es bleibt ein neutraler Satz zur Abklärung.
+
+
 
